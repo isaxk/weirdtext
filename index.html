@@ -89,6 +89,9 @@
             applyAltChars("The quick brown fox jumps over the lazy dog");
         </script>
     </div>
+    <script>
+        var luni = new Lunicode();
+    </script>
     <div class="section">
         <h1>Upside Down Text</h1>
         <p>Make your text upside down</p>
@@ -97,88 +100,13 @@
             onkeyup="applyUpsideDown(this.value)">
         <div onclick="clipcopy(this.id)" class="output" id="upsidedownoutput"></div>
         <script>
-            function reverseString(str) {
-                var splitString = str.split("");
-                var reverseArray = splitString.reverse();
-                var joinArray = reverseArray.join("");
-                return joinArray;
-            }
-            String.prototype.replaceAll = function (search, replacement) {
-                var target = this;
-                return target.replace(new RegExp(search, 'g'), replacement);
-            };
             function applyUpsideDown(input) {
-                input = input.toLowerCase();
-                input = reverseString(input)
-                input = input.replaceAll('a', '&#592;')
-                input = input.replaceAll('b', 'q')
-                input = input.replaceAll('c', '&#596;')
-                input = input.replaceAll('d', 'p')
-                input = input.replaceAll('e', '&#477;')
-                input = input.replaceAll('f', '&#607;')
-                input = input.replaceAll('g', '&#387;')
-                input = input.replaceAll('h', '&#613;')
-                input = input.replaceAll('i', '&#7433;')
-                input = input.replaceAll('j', '&#638;')
-                input = input.replaceAll('k', '&#670;')
-                input = input.replaceAll('l', 'l')
-                input = input.replaceAll('m', '&#623;')
-                input = input.replaceAll('n', 'u')
-                input = input.replaceAll('o', 'o')
-                input = input.replaceAll('p', 'd')
-                input = input.replaceAll('q', 'b')
-                input = input.replaceAll('r', '&#633;')
-                input = input.replaceAll('s', 's')
-                input = input.replaceAll('t', '&#647;')
-                input = input.replaceAll('u', 'n')
-                input = input.replaceAll('v', '&#652;')
-                input = input.replaceAll('w', '&#653;')
-                input = input.replaceAll('x', 'x')
-                input = input.replaceAll('y', '&#654;')
-                input = input.replaceAll('z', 'z')
+                input = luni.tools.flip.encode(input);
                 document.getElementById('upsidedownoutput').innerHTML = input;
             }
             applyUpsideDown("The quick brown fox jumps over the lazy dog");
         </script>
     </div>
-    <div class="section">
-        <h1>Flipped Text</h1>
-        <p>Make your flipped</p>
-        <p>Click output to copy!</p>
-        <input type="text" placeholder="The quick brown fox jumps over the lazy dog" id="flippedinput"
-            onkeyup="applyFlipped(this.value)">
-        <div onclick="clipcopy(this.id)" class="output" id="flippedoutput"></div>
-        <script>
-            function reverseString(str) {
-                // Step 1. Use the split() method to return a new array
-                var splitString = str.split(""); // var splitString = "hello".split("");
-                // ["h", "e", "l", "l", "o"]
-
-                // Step 2. Use the reverse() method to reverse the new created array
-                var reverseArray = splitString.reverse(); // var reverseArray = ["h", "e", "l", "l", "o"].reverse();
-                // ["o", "l", "l", "e", "h"]
-
-                // Step 3. Use the join() method to join all elements of the array into a string
-                var joinArray = reverseArray.join(""); // var joinArray = ["o", "l", "l", "e", "h"].join("");
-                // "olleh"
-
-                //Step 4. Return the reversed string
-                return joinArray; // "olleh"
-            }
-            String.prototype.replaceAll = function (search, replacement) {
-                var target = this;
-                return target.replace(new RegExp(search, 'g'), replacement);
-            };
-            function applyFlipped(input) {
-                input = reverseString(input)
-                document.getElementById('flippedoutput').innerHTML = input;
-            }
-            applyFlipped("The quick brown fox jumps over the lazy dog");
-        </script>
-    </div>
-    <script>
-        var luni = new Lunicode();
-    </script>
     <div class="section">
         <h1>Glitched Letters</h1>
         <p>its glitched</p>
