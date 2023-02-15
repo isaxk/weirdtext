@@ -6,7 +6,6 @@
         "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-
 h1 {
     font-size: 32px;
 }
@@ -15,6 +14,10 @@ h2 {
 }
 h3 {
     font-size: 19px;
+}
+
+.hero {
+    margin-top: 60px;
 }
 
 main {
@@ -27,7 +30,7 @@ main {
 }
 
 .hero {
-    margin-bottom: 60px;
+    margin: 100px 0px;
 }
 
 .inputBox {
@@ -147,7 +150,14 @@ main {
     outline: #2d2d2d45 2px solid;
 }
 
+a {
+    color: #0000ff;
+    text-decoration: none;
+}
 @media (prefers-color-scheme: dark) {
+    a {
+        color: #4c4cff;
+    }
     :root {
         color: white;
         background-color: #292929;
@@ -191,7 +201,7 @@ main {
         transform: translate(5px, 5px);
     }
     50% {
-        transform: translate(5px, 10px)
+        transform: translate(5px, 10px);
     }
     100% {
         transform: translate(5px, 5px);
