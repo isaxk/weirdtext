@@ -17,8 +17,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"flip-text": "^1.2.0",
-		"lunicode": "^2.0.1",
 		"svelte-clipboard": "^1.0.0"
 	}
 }
