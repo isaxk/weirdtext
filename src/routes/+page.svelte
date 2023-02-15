@@ -1,13 +1,15 @@
 <script>
-    import "./index.scss";
+    import "../lib/index.scss";
 
-    import TextOutput from "./TextOutput.svelte";
+    import TextOutput from "../lib/components/TextOutput.svelte";
 
     let input;
 </script>
 
 <svelte:head>
+
     <title>WeirdText</title>
+
 </svelte:head>
 
 <main>
