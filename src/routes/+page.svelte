@@ -1,59 +1,27 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+    import "./index.scss";
+
+    import TextOutput from "./TextOutput.svelte";
+
+    let input;
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+    <title>WeirdText</title>
 </svelte:head>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
+<main>
+    <div class="hero">
+        <h1>WeirdText</h1>
+        <h3>Make your text wierd. Copy and paste anywhere</h3>
+    </div>
+    <input class="inputBox" bind:value={input} placeholder="Enter your text here..."/>
 
-		to your new<br />SvelteKit app
-	</h1>
+    <TextOutput title="Upside Down" tool="flip" input={input} />
 
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
+    <TextOutput title="Bendy Letters" tool="bent" input={input} />
+    
+    <TextOutput title="Creepify" tool="creepify" input={input}/>
 
-	<Counter />
-</section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
+    <TextOutput title="Bubbles!" tool="bubbles" input={input}/>
+</main>
