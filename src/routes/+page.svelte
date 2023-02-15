@@ -15,7 +15,10 @@
 <main>
     <div class="hero">
         <h1>WeirdText</h1>
-        <h3>Make your text wierd. Copy and paste anywhere</h3>
+        <h3>
+            Make your text wierd. Copy and paste anywhere
+        </h3>
+        <h3>by <a href="https://www.isaacboor.me">isaacboor.me</a></h3>
     </div>
     <input class="inputBox" bind:value={input} placeholder="Enter your text here..."/>
     
