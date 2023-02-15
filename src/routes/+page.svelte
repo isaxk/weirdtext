@@ -1,5 +1,6 @@
 <script>
     import "../lib/index.scss";
+    import { copied } from '../lib/stores';
 
     import TextOutput from "../lib/components/TextOutput.svelte";
 
@@ -11,6 +12,7 @@
     <title>WeirdText</title>
 
 </svelte:head>
+
 
 <main>
     <div class="hero">
