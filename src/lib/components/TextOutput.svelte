@@ -3,7 +3,7 @@
     export let title;
     export let tool;
 
-    import { luni } from "./lunicode.js";
+    import { luni } from "../lunicode";
     import CopyButton from "./CopyButton.svelte";
 
     let output;

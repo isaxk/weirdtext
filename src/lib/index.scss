@@ -6,6 +6,17 @@
         "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+
+h1 {
+    font-size: 32px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 19px;
+}
+
 main {
     width: 550px;
     max-width: 100%;
@@ -163,5 +174,26 @@ main {
     .copyBtn:active {
         outline: 2px solid #5f5f5f;
         transition: 0.1s;
+    }
+}
+
+.copy-prompt {
+    text-align: right;
+    transform: translate(-20px, 50px);
+    i {
+        transform: translate(5px, 5px);
+        animation: arrow 2s infinite ease;
+    }
+}
+
+@keyframes arrow {
+    0% {
+        transform: translate(5px, 5px);
+    }
+    50% {
+        transform: translate(5px, 10px)
+    }
+    100% {
+        transform: translate(5px, 5px);
     }
 }
