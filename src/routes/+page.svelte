@@ -18,6 +18,10 @@
         <h3>Make your text wierd. Copy and paste anywhere</h3>
     </div>
     <input class="inputBox" bind:value={input} placeholder="Enter your text here..."/>
+    
+    
+    <div class="copy-prompt">Click to copy <i class="fa-solid fa-arrow-turn-down"></i></div>
+
 
     <TextOutput title="Upside Down" tool="flip" input={input} />
 
