@@ -128,7 +128,7 @@ main {
 
 .copyBtn {
     float: right;
-    padding: 13px 15px;
+    padding: 13px 0px;
     font-size: 20px;
     border: none;
     border-radius: 8px;
@@ -139,6 +139,12 @@ main {
     top: 0px;
     box-sizing: border-box;
     color: black;
+    width: 45px;
+}
+.copyBtn {
+    i {
+        margin: auto;
+    }
 }
 
 .copyBtn:hover {
