@@ -2,11 +2,11 @@
     export let input = "This is what THIS looks like";
     export let title;
     export let tool;
+    let output;
 
     import { luni } from "../lunicode";
     import CopyButton from "./CopyButton.svelte";
 
-    let output;
     luni.initAll();
 
     luni.tools.creepify.options.maxHeight = 2;

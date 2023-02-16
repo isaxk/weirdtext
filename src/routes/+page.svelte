@@ -1,10 +1,9 @@
 <script>
     import "../lib/index.scss";
-    import { copied } from '../lib/stores';
 
     import TextOutput from "../lib/components/TextOutput.svelte";
 
-    let input;
+    let value;
 </script>
 
 <svelte:head>
@@ -22,17 +21,17 @@
         </h3>
         <h3>by <a href="https://www.isaacboor.me">isaacboor.me</a></h3>
     </div>
-    <input class="inputBox" bind:value={input} placeholder="Enter your text here..."/>
+    <input class="inputBox" bind:value placeholder="Enter your text here..."/>
     
     
     <div class="copy-prompt">Click to copy <i class="fa-solid fa-arrow-turn-down"></i></div>
 
 
-    <TextOutput title="Upside Down" tool="flip" input={input} />
+    <TextOutput title="Upside Down" tool="flip" input={value} />
 
-    <TextOutput title="Bendy Letters" tool="bent" input={input} />
+    <TextOutput title="Bendy Letters" tool="bent" input={value} />
     
-    <TextOutput title="Creepify" tool="creepify" input={input}/>
+    <TextOutput title="Creepify" tool="creepify" input={value}/>
 
-    <TextOutput title="Bubbles!" tool="bubbles" input={input}/>
+    <TextOutput title="Bubbles!" tool="bubbles" input={value}/>
 </main>
