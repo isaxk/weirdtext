@@ -501,6 +501,13 @@ export const luni = {
           this.map[String.fromCharCode(i)] = String.fromCharCode(i + 9263);
         }
         this.map['0'] = '\u24ea';
+        this.map["'"] = "'";
+        this.map[","] = ",";
+        this.map["."] = ".";
+        this.map['"'] = '"';
+        this.map['!'] = '!';
+        this.map['?'] = '?';
+        this.map['/'] = '/';
 
         // Capital letters
         for (var i = 65; i <= 90; i++) {
