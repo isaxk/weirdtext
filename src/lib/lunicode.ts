@@ -1,4 +1,3 @@
-
 export const luni = {
   tools: {
 
@@ -647,7 +646,7 @@ export const luni = {
   },
 
 
-  initAll: function() {
+  initAll: function () {
     for (var i in this.tools) {
       this.tools[i].init();
     }
@@ -655,65 +654,65 @@ export const luni = {
   // init
 
   // Encode every character: U+00A0 -> &#x00a0; etc. 
-  
-  getHTML: function(text) {
-    var html = '',
-    ch,
-    lastSpaceWasNonBreaking = true, // for alternating [non-braking] spaces
-    highSurrogate = 0,
-    codepoint = 0;
 
-    for(var i = 0, len = text.length; i<len; i++) {
+  getHTML: function (text) {
+    var html = '',
+      ch,
+      lastSpaceWasNonBreaking = true, // for alternating [non-braking] spaces
+      highSurrogate = 0,
+      codepoint = 0;
+
+    for (var i = 0, len = text.length; i < len; i++) {
       ch = text.charCodeAt(i);
 
-// line break: add <br>\n
-if (ch == 10 || ch == 13) {
-  html += '<br>\n';
-  lastSpaceWasNonBreaking = true;
+      // line break: add <br>\n
+      if (ch == 10 || ch == 13) {
+        html += '<br>\n';
+        lastSpaceWasNonBreaking = true;
 
-  // space: add alternating space and non-breaking space (U+00A0). Otherwise
-  // a series of normal spaces       would collapse to one in the browser  
-} else if (ch == 32) {
-  if (lastSpaceWasNonBreaking) {
-    html += ' ';
-    lastSpaceWasNonBreaking = false;
-  } else {
-    html += '&nbsp;';
-    lastSpaceWasNonBreaking = true;
-  }
+        // space: add alternating space and non-breaking space (U+00A0). Otherwise
+        // a series of normal spaces       would collapse to one in the browser  
+      } else if (ch == 32) {
+        if (lastSpaceWasNonBreaking) {
+          html += ' ';
+          lastSpaceWasNonBreaking = false;
+        } else {
+          html += '&nbsp;';
+          lastSpaceWasNonBreaking = true;
+        }
 
-  // Normal character: Decode. Special cases for higher numbers:
-  // http://en.wikipedia.org/wiki/Mapping_of_Unicode_characters#Surrogates
-} else {
+        // Normal character: Decode. Special cases for higher numbers:
+        // http://en.wikipedia.org/wiki/Mapping_of_Unicode_characters#Surrogates
+      } else {
 
 
-  // Character is high surrogate: Remember and continue
-  if (ch >= 0xD800 && ch <= 0xDBFF) {
-    highSurrogate = ch;
-    codepoint = 0;
+        // Character is high surrogate: Remember and continue
+        if (ch >= 0xD800 && ch <= 0xDBFF) {
+          highSurrogate = ch;
+          codepoint = 0;
 
-    // last character was high surrogate: Combine with low surrogate  
-  } else if (highSurrogate > 0) {
+          // last character was high surrogate: Combine with low surrogate  
+        } else if (highSurrogate > 0) {
 
-    // If char is low surrogate:
-    if (ch >= 0xDC00 && ch <= 0xDFFF) {
-      codepoint = (highSurrogate - 0xD800) * 1024 + (ch - 0xDC00) + 0x10000;
+          // If char is low surrogate:
+          if (ch >= 0xDC00 && ch <= 0xDFFF) {
+            codepoint = (highSurrogate - 0xD800) * 1024 + (ch - 0xDC00) + 0x10000;
+          }
+          highSurrogate = 0;
+
+          // no surrogates: Just take the character  
+        } else {
+          codepoint = ch;
+        }
+
+        if (codepoint != 0) {
+          html += '&#x' + codepoint.toString(16) + ';';
+          lastSpaceWasNonBreaking = true;
+        }
+
+      }
     }
-    highSurrogate = 0;
 
-    // no surrogates: Just take the character  
-  } else {
-    codepoint = ch;
-  }
-
-  if (codepoint != 0) {
-    html += '&#x' + codepoint.toString(16) + ';';
-    lastSpaceWasNonBreaking = true;
-  }
-
-}
-    }
-
-return html;
+    return html;
   }
 }
