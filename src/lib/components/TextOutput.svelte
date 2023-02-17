@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
     export let input = "This is what THIS looks like";
-    export let title;
-    export let tool;
-    let output;
+    export let title: string;
+    export let tool: string;
+    let output: string;
 
     import { luni } from "../lunicode";
     import CopyButton from "./CopyButton.svelte";
