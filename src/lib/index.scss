@@ -9,6 +9,7 @@
 
 h1 {
     font-size: 32px;
+    margin-bottom: 0px;
 }
 h2 {
     font-size: 24px;
@@ -22,11 +23,11 @@ h3 {
 }
 
 main {
-    width: 550px;
+    width: 700px;
     max-width: 100%;
     margin: auto;
     .hero {
-        text-align: center;
+        text-align: left;
     }
 }
 
@@ -218,4 +219,9 @@ a {
 
 .text h2 {
     margin-top: 50px;
+}
+
+.by {
+    margin-top: 0px;
+    font-size: 20px;
 }
