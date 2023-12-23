@@ -19,7 +19,7 @@
         <h3>
             Make your text wierd. Copy and paste anywhere
         </h3>
-        <h3>by <a href="https://www.isaacboor.me">isaacboor.me</a> | <a href="/about">About</a> | <a href="https://www.github.com/isaacboor/weirdtext">Github</a></h3>
+        <h3>by <a href="https://www.isaxk.com">isaxk</a> | <a href="/about">About</a> | <a href="https://www.github.com/isaacboor/weirdtext">Github</a></h3>
     </div>
     <input class="inputBox" bind:value placeholder="Enter your text here..."/>
     
