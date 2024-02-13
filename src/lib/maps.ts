@@ -31,6 +31,7 @@ export const characterMaps: any = {
           'K' : '\u22CA',
           'L' : '\u02e5',
           'M' : 'W',
+          'W' : 'M',
           'P' : '\u0500',
           'Q' : '\u038C',
           'R' : '\u1D1A',
