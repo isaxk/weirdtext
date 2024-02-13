@@ -61,7 +61,6 @@
 		display: grid;
 		grid-template-rows: max-content 1fr;
 		align-items: center;
-		overflow-y: scroll;
 	}
 	.name {
 		font-weight: 700;
