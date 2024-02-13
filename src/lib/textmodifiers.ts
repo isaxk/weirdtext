@@ -122,33 +122,90 @@ function creepify(v: string) {
     return newText;
 }
 
-export const textModifiers: { name: string, textFunction: Function }[] = [
+
+export const textModifiers: { name: string, textFunction: Function, css: string }[] = [
+
+
     {
         name: "Upside Down",
         textFunction: (text: string) => {
             var map = invertMap(characterMaps.upsideDown);
             var encode = reMap(text, map);
-            return encode;
-        }
+            return encode.split("").reverse().join("");
+        },
+        css: "text-align: right;"
     },
+
+
     {
         name: "Mirror",
         textFunction: (text: string) => {
             var map = invertMap(characterMaps.mirror);
             var encode = reMap(text, map);
-            return encode;
-        }
+            return encode.split("").reverse().join("");
+        },
+        css: "text-align: right;"
     },
-    {
-        name: "empty",
-        textFunction: (v: string) => {
-            return v;
-        }
-    },
+
+
     {
         name: "Creepify",
         textFunction: (v: string) => {
             return creepify(v);
-        }
-    }
+        },
+        css: ""
+    },
+
+
+    {
+        name: "Bubbles",
+        textFunction: (v: string) => {
+            var map = characterMaps.bubbles();
+            var ret = "",
+                ch,
+                first = true;
+            var text = v.replace(/[^a-zA-Z\s]+/, "").split("");
+            for (var i in text) {
+                ch = map[text[i]];
+                if ((typeof (ch) == "undefined")) {
+                    if (text[i].charCodeAt(0) >= 33) {
+                        ch = text[i] + String.fromCharCode(8413);
+                        if (!first) {
+                            ch = String.fromCharCode(8239) + String.fromCharCode(160) + String.fromCharCode(160) + String.fromCharCode(8239) + ch;
+                        }
+                    } else {
+                        ch = text[i];
+                    }
+                }
+                ret += ch;
+                first = (ch == '\n');
+            }
+            return ret;
+        },
+        css: ""
+    },
+
+    {
+        name: "Bendy letter",
+        textFunction: (text: string) => {
+            var map = characterMaps.bendyletters;
+            var encode = reMap(text, map);
+            return encode;
+        },
+        css: ""
+    },
+
+    {
+        name: "Tiny Capitals",
+        textFunction: (v: string) => {
+            var map = characterMaps.tinycapitals;
+            var text = v.replace(/[^a-zA-Z\s]+/, "").toUpperCase();
+            var encode = reMap(text, map);
+            return encode;
+        },
+        css: ""
+    },
+
+
+
 ]

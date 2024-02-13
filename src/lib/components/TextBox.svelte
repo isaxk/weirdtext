@@ -3,7 +3,7 @@
 </script>
 
 <div class="text-box-container">
-    <input type="text" class="text-box" placeholder="Enter your text..." bind:value={$inputtedText}>
+    <input type="text" class="text-box" placeholder="Enter your text..." bind:value={$inputtedText} maxlength="30">
 </div>
 
 <style>

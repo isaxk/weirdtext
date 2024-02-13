@@ -1,34 +1,45 @@
 <script lang="ts">
 	import { inputtedText } from "$lib/stores";
-    import { textModifiers } from "$lib/textmodifiers";
+	import { textModifiers } from "$lib/textmodifiers";
 	import MaterialIcon from "./MaterialIcon.svelte";
 
+	import Clipboard from "svelte-clipboard";
 
-	export let data: { name: string, textFunction:Function };
+	export let data: { name: string; textFunction: Function; css: string };
 
 	let outputText: string;
 
 	$: if ($inputtedText === "") {
-		outputText = data.textFunction("This is what this will look like");
+		outputText = data.textFunction("This is an example");
 	} else {
 		outputText = data.textFunction($inputtedText);
 	}
 </script>
 
 <div class="output-box">
-    <div class="left">
-        <div class="name">{data.name}</div>
-        <div class="output-text-container">
-            <div class="output-text">
-                {outputText}
-            </div>
-        </div>
-    </div>
+	<div class="left">
+		<div class="name">{data.name}</div>
+		<div class="output-text-container">
+			<div class="output-text" style={data.css}>
+				{outputText}
+			</div>
+		</div>
+	</div>
 	<div class="right">
-        <div class="copy-button">
-            <MaterialIcon icon="content_copy" />
-        </div>
-    </div>
+		<div class="copy-button">
+			<Clipboard
+				text={outputText}
+				let:copy
+				on:copy={() => {
+					console.log("Has Copied");
+				}}
+			>
+				<button on:click={copy}>
+					<MaterialIcon icon="content_copy" />
+				</button>
+			</Clipboard>
+		</div>
+	</div>
 </div>
 
 <style>
@@ -38,33 +49,51 @@
 		border-radius: 5px;
 		padding: 20px 20px 30px 20px;
 		font-size: 17px;
-        display: grid;
-        grid-template-columns: 1fr max-content;
-		gap: 10px;
-
+		display: grid;
+		grid-template-columns: 1fr max-content;
+		gap: 20px;
 	}
-    .right {
-        display: grid;
-        align-items: center;
-    }
-    .left {
-        display: grid;
+	.right {
+		display: grid;
+		align-items: center;
+	}
+	.left {
+		display: grid;
 		grid-template-rows: max-content 1fr;
 		align-items: center;
-        overflow-y: scroll;
-    }
+		overflow-y: scroll;
+	}
 	.name {
-		font-weight: 600;
+		font-weight: 700;
 	}
 	.output-text {
 		padding: 10px 0px;
 		font-size: 20px;
-		font-weight: 400;
-		font-family: var(--text-font-family);
-        align-content: center;
+		font-family: "Noto Sans", sans-serif;
+		align-content: center;
 	}
-    .copy-button {
-        display: grid;
-        place-items: center;
-    }
+	.copy-button {
+		display: grid;
+		place-items: center;
+	}
+	button {
+		background-color: transparent;
+		border: none;
+		color: var(--text-color);
+		padding: 10px;
+		border-radius: 5px;
+		margin: 0px;
+		transition: .3s;
+		outline-color: grey;
+	}
+	button:hover {
+		background-color: #525252;
+		color: white;
+	}
+	button:focus{
+		outline: 5px solid #525252;
+		color: white;
+		border: 5px;
+		transition: .1s;
+	}
 </style>
