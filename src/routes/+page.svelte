@@ -5,6 +5,10 @@
 	import { textModifiers } from "$lib/textmodifiers";
 </script>
 
+<svelte:head>
+	<title>WeirdText</title>
+</svelte:head>
+
 <TextBox />
 
 <div class="outputs">
